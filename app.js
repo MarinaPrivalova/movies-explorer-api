@@ -6,8 +6,8 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-/* const router = require('./routes');
- */const errorHandler = require('./middlewares/errorHandler');
+const router = require('./routes');
+const errorHandler = require('./middlewares/errorHandler');
 const limiter = require('./middlewares/requestsLimiter');
 
 const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1/bitfilmsdb' } = process.env;
@@ -30,8 +30,8 @@ app.use(requestLogger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/* app.use(router);
- */
+app.use(router);
+
 app.use(errorLogger);
 
 app.use(errors());
