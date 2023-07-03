@@ -8,6 +8,8 @@ const STATUS_CODES = {
   CONFLICT: 409,
 };
 
+const MONGO_URL = 'mongodb://127.0.0.1/bitfilmsdb';
+
 const regexLink = /^https?:\/\/(www\.)?[a-zA-Z\0-9]+\.[\w\-._~:/?#[\]@!$&'()*+,;=]{2,}#?$/;
 
-module.exports = { STATUS_CODES, regexLink };
+module.exports = { STATUS_CODES, MONGO_URL, regexLink };

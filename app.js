@@ -5,12 +5,13 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
-const router = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
+const router = require('./routes');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { MONGO_URL } = require('./utils/constants');
 const limiter = require('./middlewares/requestsLimiter');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1/bitfilmsdb' } = process.env;
+const { PORT = 3000 } = process.env;
 
 const app = express();
 app.use(cors());
